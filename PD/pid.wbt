@@ -1,0 +1,63 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.22855831561274026 0.9501982597486892 0.21185930127051264 1.5460144782193448
+  position 10.008907857269763 4.590537556095587 -0.3160121845377818
+}
+Floor {
+  tileSize 5 5
+}
+Robot {
+  translation 0 0.251 0
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+        position -4
+      }
+      device [
+        PositionSensor {
+          name "position sensor1"
+        }
+        LinearMotor {
+          name "linear motor1"
+          minPosition -5
+          maxPosition 5
+          maxForce 500
+        }
+      ]
+      endPoint Solid {
+        translation -0.25 0 -4
+        children [
+          Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 0.666667 1 0.498039
+              }
+            }
+            geometry Box {
+              size 0.5 0.5 0.5
+            }
+          }
+        ]
+        physics Physics {
+          density -1
+          mass 2
+        }
+      }
+    }
+    DEF box1 Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.333333 1 1
+        }
+      }
+      geometry Box {
+        size 0.05 0.2 0.5
+      }
+    }
+  ]
+  controller "pid"
+}
+TexturedBackgroundLight {
+}
